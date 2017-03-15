@@ -10,31 +10,11 @@
   <body>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header app_header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title home_link">
-            <%= link_to 'Home', root_path %>
-          </span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <% if user_signed_in? %>
-              <%= link_to current_user.email, edit_user_registration_path, :class => 'mdl-navigation__link' %>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => 'mdl-navigation__link' %>
-            <% else %>
-              <%= link_to 'Log In', new_user_session_path, :class => 'mdl-navigation__link' %>
-              <%= link_to 'Sign Up', new_user_registration_path, :class => 'mdl-navigation__link' %>
-            <% end %>
-          </nav>
-        </div>
-      </header>
+      <%= render partial: 'layouts/navbar' %>
       <main class="mdl-layout__content">
         <div class="page-content">
           <!-- Your content goes here -->
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <%= render partial: 'layouts/flash' %>
           <%= yield %>
         </div>
       </main>

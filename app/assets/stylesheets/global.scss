@@ -1,8 +1,13 @@
 html {
   color: rgba(0,0,0,.87);
+  background-color: #EFEFEF;
 }
 
-.home_link {
+.home_link a {
   text-decoration: none;
-  font-color: 
+  font-color: white;
+}
+
+blockquote{
+  display: inline-block;
 }

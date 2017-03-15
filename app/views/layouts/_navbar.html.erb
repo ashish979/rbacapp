@@ -1,0 +1,20 @@
+<header class="mdl-layout__header app_header">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title home_link">
+      <%= link_to 'Home', root_path %>
+    </span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <% if user_signed_in? %>
+        <%= link_to current_user.email, edit_user_registration_path, :class => 'mdl-navigation__link' %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => 'mdl-navigation__link' %>
+      <% else %>
+        <%= link_to 'Log In', new_user_session_path, :class => 'mdl-navigation__link' %>
+        <%= link_to 'Sign Up', new_user_registration_path, :class => 'mdl-navigation__link' %>
+      <% end %>
+    </nav>
+  </div>
+</header>
