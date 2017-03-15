@@ -1,0 +1,30 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Login</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= f.email_field :email, autofocus: true, class: 'mdl-textfield__input' %>
+              <%= f.label :email, class: 'mdl-textfield__label' %>
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= f.password_field :password, class: 'mdl-textfield__input' %>
+              <%= f.label :password, autocomplete: 'off', class: 'mdl-textfield__label' %>
+            </div>
+
+            <% if devise_mapping.rememberable? -%>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            <% end -%>
+            <%= f.submit 'Log in', class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+</div>
